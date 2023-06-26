@@ -52,8 +52,5 @@ nav .logo {
 
 .footer-inner-wrapper{
   border: 3px solid black;
-  color: white;
-  padding: 3rem 2rem;
+  padding: 3;
 }
-
-.footer-inner-wrapper a{ color: white}
