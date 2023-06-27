@@ -91,13 +91,22 @@ nav .logo {
 }
 
 /* display site-wrapper when done with styling modal */
-.site-wrapper{display: none}
+.site-wrapper{}
 
 .modal-popup-wrapper{
   background-color: rgb(181, 181, 181);
   padding: 3.125rem 0;
   width: 50%;
   margin: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
 }
 
 .modal-inner-wrapper{
@@ -187,6 +196,20 @@ nav .logo {
   padding-left: 0.5rem;
   justify-content: flex-start;
 }
+
+.blur{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.hide-vertical{
+  overflow-y: hidden;
+}
+
+.hide-init{
+  display: none;
+}
+
 
 .footer {
   width: 100%;

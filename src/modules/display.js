@@ -12,7 +12,7 @@ const displayPokemons = async () => {
         <div class="pokemon-title"> ${pokemon.name} <i class="fa-regular fa-heart"></i>
         </div>
         <div class="btn">
-          <button type="button">Comment</button>
+          <button type="button" class="comment-btn">Comment</button>
         </div>
       </div>`;
     container.innerHTML += card;
