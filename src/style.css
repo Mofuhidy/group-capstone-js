@@ -98,10 +98,9 @@ nav .logo {
   padding: 3.125rem 0;
   width: 50%;
   margin: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
-  margin: auto;
   transform: translate(-50%);
   -webkit-transform: translate(-50%);
   -moz-transform: translate(-50%);
