@@ -13,14 +13,13 @@ const getPokemonLikes = async () => {
 };
 
 const postPokemonLikes = async (url, id) => {
-  const response = await fetch(url, {
+  await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ item_id: id }), // body data type must match "Content-Type" header
   });
-  return response.json();
 };
 
 export { getPokemonData, postPokemonLikes, getPokemonLikes };
