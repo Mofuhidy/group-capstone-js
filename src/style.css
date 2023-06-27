@@ -19,17 +19,19 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
+
 header {
   position: relative;
 }
 
 header .gradient {
   position: absolute;
-  background: radial-gradient(
-    circle,
-    rgba(94, 55, 186, 1) 10%,
-    rgba(24, 7, 94, 1) 70%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(94, 55, 186, 1) 10%,
+      rgba(24, 7, 94, 1) 70%
+    );
   height: 600px;
   width: 600px;
   top: -240px;
@@ -160,6 +162,7 @@ i:hover {
 .footer-inner-wrapper a {
   color: var(--gray-color);
 }
+
 h3 {
   font-size: 1.3rem;
 }
@@ -179,6 +182,7 @@ h3 {
     gap: 90px;
     margin-top: 5px;
   }
+
   body {
     font-size: 16px;
   }
