@@ -167,6 +167,16 @@ h3 {
   font-size: 1.3rem;
 }
 
+.active a {
+  text-decoration: underline;
+  color: var(--pink-color);
+  display: flex;
+}
+
+.itemLikes {
+  margin-right: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .pokemons-container {
     display: grid;

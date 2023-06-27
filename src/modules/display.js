@@ -1,6 +1,6 @@
 import { getPokemonData, getPokemonLikes, postPokemonLikes } from './apiOerations.js';
 import { likesAPi } from './apiLinks.js';
-import countItems from './countItems.js';
+import { countItems } from './countItems.js';
 
 const container = document.querySelector('.pokemons-container');
 
