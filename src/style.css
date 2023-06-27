@@ -25,12 +25,11 @@ header {
 
 header .gradient {
   position: absolute;
-  background:
-    radial-gradient(
-      circle,
-      rgba(94, 55, 186, 1) 10%,
-      rgba(24, 7, 94, 1) 70%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(94, 55, 186, 1) 10%,
+    rgba(24, 7, 94, 1) 70%
+  );
   height: 600px;
   width: 600px;
   top: -240px;
@@ -76,7 +75,7 @@ nav .logo {
   justify-content: center;
   column-gap: 50px;
   row-gap: 20px;
-  margin-bottom: 50px;
+  margin: 50px;
 }
 
 .pokemons-container .card-wrapper {
@@ -87,16 +86,23 @@ nav .logo {
   gap: 10px;
   background-color: var(--gray-color);
   border-radius: 5px;
-  height: 390px;
+  height: 450px;
 }
 
 .pokemon-title {
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  width: 200px;
+  align-items: center;
+  width: 80%;
   font-size: 16px;
   margin-top: 5px;
+}
+
+.likes-contain {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  margin-left: 200px;
 }
 
 .btn {
