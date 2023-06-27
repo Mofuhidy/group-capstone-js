@@ -1,18 +1,23 @@
 import { getPokemonData, getPokemonLikes, postPokemonLikes } from './apiOerations.js';
 import { likesAPi } from './apiLinks.js';
+import countItems from './countItems.js';
 
 const container = document.querySelector('.pokemons-container');
 
-const getPokemon = async (result) => {
+const getPokemon = async (res) => {
   // get the likes of the items before add more likes
   const likes = await getPokemonLikes();
-  const slicedResult = result.slice(1, 10);
-  // sort by name
-  const ordered = slicedResult.sort((a, b) => a.name.localeCompare(b.name));
-  ordered.map(async (item) => {
+
+  const pokemonCards = await Promise.all(res.map(async (item) => {
     const result = await fetch(item.url);
     const pokemon = await result.json();
+    return pokemon;
+  }));
 
+  const ordered = pokemonCards.slice(1, 15).sort((a, b) => (a.id > b.id ? 1 : -1));
+  // count all Items
+  countItems(ordered.length);
+  pokemonCards.forEach((pokemon) => {
     const likeIndex = likes.findIndex((like) => {
       const itemId = like.item_id;
       if (typeof itemId === 'string') {
