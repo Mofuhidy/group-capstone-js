@@ -35,8 +35,10 @@ const postPokemonComment = async (url, id, username, comment) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ item_id: id, username: username, comment: comment}), // body data type must match "Content-Type" header
+    body: JSON.stringify({ item_id: id, username, comment }), // body data type must match "Content-Type" header
   });
 };
 
-export { getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment, getPokemonComments };
+export {
+  getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment, getPokemonComments,
+};

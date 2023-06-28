@@ -3,7 +3,7 @@ import { likesAPi } from './apiLinks.js';
 import { countItems } from './countItems.js';
 import modalOperation from './modalOperations.js';
 
-// variable to be exported 
+// variable to be exported
 const container = document.querySelector('.pokemons-container');
 
 const getPokemon = async (res) => {
@@ -16,10 +16,8 @@ const getPokemon = async (res) => {
     return pokemon;
   }));
 
-   
-
   const ordered = pokemonCards.slice(1, 15).sort((a, b) => (a.id > b.id ? 1 : -1));
-  
+
   // count all Items
   countItems(ordered.length);
   ordered.forEach((pokemon) => {
@@ -77,4 +75,4 @@ const displayPokemons = async () => {
   getPokemon(data.results);
 };
 
-export default displayPokemons
+export default displayPokemons;

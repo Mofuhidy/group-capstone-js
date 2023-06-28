@@ -1,6 +1,6 @@
-import {comments, pokeApi} from "./apiLinks.js"
-import { postPokemonComment, getPokemonComments } from './apiOerations.js'
-import { pokMon } from "./display.js";
+import { comments, pokeApi } from './apiLinks.js';
+import { postPokemonComment, getPokemonComments } from './apiOerations.js';
+import { pokMon } from './display.js';
 
 const siteWrapper = document.querySelector('.site-wrapper');
 const modalPopupWrapper = document.querySelector('.modal-popup-wrapper');
@@ -11,8 +11,6 @@ const cancelPopUp = () => {
   body.classList.toggle('hide-vertical');
   modalPopupWrapper.classList.toggle('hide-init');
 };
-
-
 
 const popUpFunc = async () => {
   const commentBtn = document.querySelectorAll('.comment-btn');
@@ -25,20 +23,19 @@ const popUpFunc = async () => {
       const elImg = currentCard.firstElementChild;
       const elTitle = elImg.nextElementSibling.firstElementChild;
       const ability = elImg.nextElementSibling.nextElementSibling
-      .firstElementChild.nextElementSibling.nextElementSibling;
-      const weight = ability.nextElementSibling
-      const height = ability.nextElementSibling.nextElementSibling
+        .firstElementChild.nextElementSibling.nextElementSibling;
+      const weight = ability.nextElementSibling;
+      const height = ability.nextElementSibling.nextElementSibling;
       const move = ability.nextElementSibling.nextElementSibling
-      .nextElementSibling
+        .nextElementSibling;
       //  get comment
-      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3P9ifz6JhS0AXCdTzxPo/comments?item_id=${currentCard.id}`
+      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3P9ifz6JhS0AXCdTzxPo/comments?item_id=${currentCard.id}`;
 
       const getPokemonComments = async () => {
         const response = await fetch(url);
         const data = await response.json();
-        return data;
+        return data;
       };
-      
 
       // create dynamic modal popup
       const element = `<div class="modal-inner-wrapper">
@@ -73,43 +70,40 @@ const popUpFunc = async () => {
                 </form>
               </div>
           </div>`;
-          const gottenComments = getPokemonComments()
-      gottenComments.then( result => {
-        console.log(re)
-        let commentWrapper = document.querySelector(".comments")
-        
-        if(result){
+      const gottenComments = getPokemonComments();
+      gottenComments.then((result) => {
+        console.log(re);
+        const commentWrapper = document.querySelector('.comments');
 
-        result.forEach( el => {
-            let li = `<li>${el.creation_date} ${el.username} ${el.comment}</li>`
-            commentWrapper.innerHTML += li
-        } )
-        }else{let li = `<li>There's no comment yet</li>`;
-        commentWrapper.innerHTML += li}
-
-
-      } )
+        if (result) {
+          result.forEach((el) => {
+            const li = `<li>${el.creation_date} ${el.username} ${el.comment}</li>`;
+            commentWrapper.innerHTML += li;
+          });
+        } else {
+          const li = '<li>There\'s no comment yet</li>';
+          commentWrapper.innerHTML += li;
+        }
+      });
 
       modalPopupWrapper.innerHTML = element;
       const postCommentBtn = document.querySelector('.post-btn');
 
-    //   post comment
-      postCommentBtn.addEventListener("click", (e) => {
+      //   post comment
+      postCommentBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const username = document.querySelector("#username").value
-        const comment = document.querySelector("#comment").value
-        postPokemonComment(comments, currentCard.id, username, comment )
-        setTimeout( () => {
-            document.querySelector("form").reset();
-        })
-      })
+        const username = document.querySelector('#username').value;
+        const comment = document.querySelector('#comment').value;
+        postPokemonComment(comments, currentCard.id, username, comment);
+        setTimeout(() => {
+          document.querySelector('form').reset();
+        });
+      });
       const cancelIcon = document.querySelector('.cancel-icon');
       cancelIcon.addEventListener('click', cancelPopUp);
     });
   });
 };
-
-
 
 const modalOperation = () => {
   popUpFunc();
