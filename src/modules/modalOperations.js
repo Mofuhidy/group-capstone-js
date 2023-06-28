@@ -1,5 +1,5 @@
 
-import getPokemonData from './apiOerations.js';
+import {getPokemonData} from './apiOerations.js';
 
 
 const siteWrapper = document.querySelector(".site-wrapper");
@@ -24,14 +24,18 @@ const popUpFunc = async() => {
             modalPopupWrapper.classList.toggle("hide-init")
             let currentCard = el.parentNode.parentNode;
             let elImg = currentCard.firstElementChild
-            console.log(data.results)
+            let elTitle = elImg.nextElementSibling.firstElementChild.innerHTML
+            // get item likes
+            let elLikes = currentCard.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.innerHTML
+            console.log(elLikes)
+            console.log(currentCard)
             // create dynamic modal popup
             const element = `<div class="modal-inner-wrapper">
             <div class="img-cancel">
               <img src="${elImg.src}" alt="">
               <span class="cancel-icon">X</span>
             </div>
-            <div class="modal-title"><h1>Space</h1></div>
+            <div class="modal-title"><h1>${elTitle}</h1></div>
             <div class="modal-info">
               <div class="left">
                 <span>Fuel: titanium</span>

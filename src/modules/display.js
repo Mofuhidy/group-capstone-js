@@ -1,7 +1,7 @@
 import { getPokemonData, getPokemonLikes, postPokemonLikes } from './apiOerations.js';
 import { likesAPi } from './apiLinks.js';
 import { countItems } from './countItems.js';
-
+import modalOperation from './modalOperations.js'
 const container = document.querySelector('.pokemons-container');
 
 const getPokemon = async (res) => {
@@ -41,8 +41,8 @@ const getPokemon = async (res) => {
         <div class="pokemon-title"> <h3>${pokemon.name}</h3> <i class="fa-regular fa-heart likeBtn" id="${pokemon.id}"></i></i>
         </div>
 
-        <div class="btn">
-          <button type="button" class="comment-btn">Comment</button>
+        <div>
+          <button type="button" class="comment-btn btn">Comment</button>
             <div class="likes-contain"><h4 class="itemLikes">${likeCount}</h4><p>likes</p>
             </div>
       </div>`;
@@ -60,6 +60,7 @@ const getPokemon = async (res) => {
         likeCountNums[index].textContent = likeCount.toString();
       });
     });
+    modalOperation()
   });
 };
 

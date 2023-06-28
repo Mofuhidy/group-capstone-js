@@ -149,12 +149,13 @@ i:hover {
 }
 
 /* display site-wrapper when done with styling modal */
-.site-wrapper{}
 
 .modal-popup-wrapper{
   background-color: rgb(181, 181, 181);
   padding: 3.125rem 0;
   width: 50%;
+  height: 100vh;
+  overflow-y: scroll;
   margin: auto;
   position: fixed;
   top: 0;
