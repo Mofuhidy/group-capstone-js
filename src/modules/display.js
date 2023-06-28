@@ -1,7 +1,8 @@
 import { getPokemonData, getPokemonLikes, postPokemonLikes } from './apiOerations.js';
 import { likesAPi } from './apiLinks.js';
 import { countItems } from './countItems.js';
-import modalOperation from './modalOperations.js'
+import modalOperation from './modalOperations.js';
+
 const container = document.querySelector('.pokemons-container');
 
 const getPokemon = async (res) => {
@@ -13,7 +14,6 @@ const getPokemon = async (res) => {
     const pokemon = await result.json();
     return pokemon;
   }));
-
 
   const ordered = pokemonCards.slice(1, 15).sort((a, b) => (a.id > b.id ? 1 : -1));
   // count all Items
@@ -60,7 +60,7 @@ const getPokemon = async (res) => {
         likeCountNums[index].textContent = likeCount.toString();
       });
     });
-    modalOperation()
+    modalOperation();
   });
 };
 
@@ -70,4 +70,3 @@ const displayPokemons = async () => {
 };
 
 export default displayPokemons;
-

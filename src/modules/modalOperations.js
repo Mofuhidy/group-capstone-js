@@ -1,36 +1,25 @@
-
-import {getPokemonData} from './apiOerations.js';
-
-
-const siteWrapper = document.querySelector(".site-wrapper");
-const modalPopupWrapper = document.querySelector(".modal-popup-wrapper");
-const body = document.querySelector("body");
-
+const siteWrapper = document.querySelector('.site-wrapper');
+const modalPopupWrapper = document.querySelector('.modal-popup-wrapper');
+const body = document.querySelector('body');
 
 const cancelPopUp = () => {
-    siteWrapper.classList.toggle("blur");
-    body.classList.toggle("hide-vertical")
-    modalPopupWrapper.classList.toggle("hide-init")
-}
+  siteWrapper.classList.toggle('blur');
+  body.classList.toggle('hide-vertical');
+  modalPopupWrapper.classList.toggle('hide-init');
+};
 
-const popUpFunc = async() => {
-    const commentBtn = document.querySelectorAll(".comment-btn");
-    const data = await getPokemonData();
-
-    commentBtn.forEach( el => {
-        el.addEventListener("click", () => {
-            siteWrapper.classList.toggle("blur");
-            body.classList.toggle("hide-vertical")
-            modalPopupWrapper.classList.toggle("hide-init")
-            let currentCard = el.parentNode.parentNode;
-            let elImg = currentCard.firstElementChild
-            let elTitle = elImg.nextElementSibling.firstElementChild.innerHTML
-            // get item likes
-            let elLikes = currentCard.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.innerHTML
-            console.log(elLikes)
-            console.log(currentCard)
-            // create dynamic modal popup
-            const element = `<div class="modal-inner-wrapper">
+const popUpFunc = async () => {
+  const commentBtn = document.querySelectorAll('.comment-btn');
+  commentBtn.forEach((el) => {
+    el.addEventListener('click', () => {
+      siteWrapper.classList.toggle('blur');
+      body.classList.toggle('hide-vertical');
+      modalPopupWrapper.classList.toggle('hide-init');
+      const currentCard = el.parentNode.parentNode;
+      const elImg = currentCard.firstElementChild;
+      const elTitle = elImg.nextElementSibling.firstElementChild.innerHTML;
+      // create dynamic modal popup
+      const element = `<div class="modal-inner-wrapper">
             <div class="img-cancel">
               <img src="${elImg.src}" alt="">
               <span class="cancel-icon">X</span>
@@ -62,17 +51,15 @@ const popUpFunc = async() => {
                   <button type="submit">Comment</button>
                 </form>
               </div>
-          </div>`
-          modalPopupWrapper.innerHTML = element;
-          const cancelIcon = document.querySelector(".cancel-icon");
-          cancelIcon.addEventListener("click", cancelPopUp)
-        })
-        
-    })
-}
+          </div>`;
+      modalPopupWrapper.innerHTML = element;
+      const cancelIcon = document.querySelector('.cancel-icon');
+      cancelIcon.addEventListener('click', cancelPopUp);
+    });
+  });
+};
 
 const modalOperation = () => {
-    popUpFunc()    
-}
-export default modalOperation
- 
+  popUpFunc();
+};
+export default modalOperation;
