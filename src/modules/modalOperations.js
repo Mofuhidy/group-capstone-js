@@ -1,5 +1,6 @@
 
 
+import getPokemonData from './apiOerations.js';
 
 const siteWrapper = document.querySelector(".site-wrapper");
 const modalPopupWrapper = document.querySelector(".modal-popup-wrapper");
@@ -20,10 +21,12 @@ const popUpFunc = () => {
             body.classList.toggle("hide-vertical")
             modalPopupWrapper.classList.toggle("hide-init")
             let currentCard = el.parentNode.parentNode;
+            let elImg = currentCard.firstElementChild
+            console.log(getPokemonData())
             // create dynamic modal popup
             const element = `<div class="modal-inner-wrapper">
             <div class="img-cancel">
-              <img src="./assets/pngegg.png" alt="">
+              <img src="${elImg.src}" alt="">
               <span class="cancel-icon">X</span>
             </div>
             <div class="modal-title"><h1>Space</h1></div>
