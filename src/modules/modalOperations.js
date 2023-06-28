@@ -62,7 +62,6 @@ const popUpFunc = async () => {
                   <span>Comments (2)</span>
                 </div>
                 <ul class="comments">
-      
                 </ul>
                 <form action="" class="add-comments">
                   <p class="p1">Add a comment</p>
