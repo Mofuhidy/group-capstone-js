@@ -10,6 +10,6 @@ window.onload = () => {
     displayPokemons();
     setTimeout( () => {
         modalOperation()
-    }, 3000)
+    }, 500)
 }
 
