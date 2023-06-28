@@ -3,6 +3,7 @@ import { likesAPi } from './apiLinks.js';
 import { countItems } from './countItems.js';
 import modalOperation from './modalOperations.js';
 
+// variable to be exported 
 const container = document.querySelector('.pokemons-container');
 
 const getPokemon = async (res) => {
@@ -15,10 +16,13 @@ const getPokemon = async (res) => {
     return pokemon;
   }));
 
+   
+
   const ordered = pokemonCards.slice(1, 15).sort((a, b) => (a.id > b.id ? 1 : -1));
+  
   // count all Items
   countItems(ordered.length);
-  pokemonCards.forEach((pokemon) => {
+  ordered.forEach((pokemon) => {
     const likeIndex = likes.findIndex((like) => {
       const itemId = like.item_id;
       if (typeof itemId === 'string') {
@@ -45,6 +49,10 @@ const getPokemon = async (res) => {
           <button type="button" class="comment-btn btn">Comment</button>
             <div class="likes-contain"><h4 class="itemLikes">${likeCount}</h4><p>likes</p>
             </div>
+            <input type="hidden" id="ability" value=${pokemon.abilities[0].ability.name}>
+            <input type="hidden" id="weight" value=${pokemon.weight}>
+            <input type="hidden" id="height" value=${pokemon.height}>
+            <input type="hidden" id="move" value=${pokemon.moves[0].move.name}>
       </div>`;
     container.innerHTML += card;
 
@@ -69,4 +77,4 @@ const displayPokemons = async () => {
   getPokemon(data.results);
 };
 
-export default displayPokemons;
+export default displayPokemons
