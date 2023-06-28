@@ -17,6 +17,7 @@
 body {
   background: var(--dark-color);
   font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 header {
@@ -25,11 +26,12 @@ header {
 
 header .gradient {
   position: absolute;
-  background: radial-gradient(
-    circle,
-    rgba(94, 55, 186, 1) 10%,
-    rgba(24, 7, 94, 1) 70%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(94, 55, 186, 1) 10%,
+      rgba(24, 7, 94, 1) 70%
+    );
   height: 600px;
   width: 600px;
   top: -240px;
@@ -55,7 +57,7 @@ nav .logo {
 
 .nav-menu ul {
   display: flex;
-  gap: 90px;
+  gap: 5px;
   margin-top: 5px;
 }
 
@@ -69,10 +71,18 @@ nav .logo {
   font-weight: 500;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 .pokemons-container {
   display: grid;
-  grid-template-columns: 350px 350px 350px;
+  grid-template-columns: 300px;
   justify-content: center;
+  column-gap: 50px;
+  row-gap: 20px;
+  margin: 50px;
 }
 
 .pokemons-container .card-wrapper {
@@ -80,14 +90,62 @@ nav .logo {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
+  gap: 5px;
+  background-color: var(--gray-color);
+  border-radius: 5px;
+  height: 400px;
+}
+
+.pokemon-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.likes-contain {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  margin-left: 200px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  background-color: #420ec780;
+  color: var(--gray-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+.btn:hover {
+  background-color: var(--dark-color);
+  transform: translateY(-3px);
+}
+
+i {
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+i:hover {
+  color: #bf5197;
+  transform: translateY(-3px) scale(1.1);
 }
 
 .card-wrapper img {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   object-fit: contain;
+  background-color: #bf5197ab;
+  border-radius: 4.5px;
+  padding: 15px;
 }
 
 /* display site-wrapper when done with styling modal */
@@ -223,4 +281,50 @@ nav .logo {
 
 .footer-inner-wrapper a {
   color: var(--gray-color);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+.active a {
+  text-decoration: underline;
+  color: var(--pink-color);
+  display: flex;
+}
+
+.itemLikes {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .pokemons-container {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    justify-content: center;
+    column-gap: 50px;
+    row-gap: 20px;
+    margin: 50px;
+  }
+
+  .nav-menu ul {
+    display: flex;
+    gap: 90px;
+    margin-top: 5px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .pokemons-container .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--gray-color);
+    border-radius: 5px;
+    height: 450px;
+  }
 }
