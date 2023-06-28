@@ -20,3 +20,4 @@ const displayPokemons = async () => {
 };
 
 export default displayPokemons;
+

@@ -1,6 +1,6 @@
 
-
 import getPokemonData from './apiOerations.js';
+
 
 const siteWrapper = document.querySelector(".site-wrapper");
 const modalPopupWrapper = document.querySelector(".modal-popup-wrapper");
@@ -68,13 +68,7 @@ const popUpFunc = async() => {
 }
 
 const modalOperation = () => {
-    popUpFunc()
-        // if(popUpFunc()){
-        //     const cancelIcon = document.querySelector(".cancel-icon");
-        //     cancelIcon.forEach( el => {
-        //         el.addEventListener("click", cancelPopUp)
-        //     })
-        // }
-    
+    popUpFunc()    
 }
 export default modalOperation
+ 
