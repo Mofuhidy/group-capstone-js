@@ -13,8 +13,10 @@ const cancelPopUp = () => {
     modalPopupWrapper.classList.toggle("hide-init")
 }
 
-const popUpFunc = () => {
+const popUpFunc = async() => {
     const commentBtn = document.querySelectorAll(".comment-btn");
+    const data = await getPokemonData();
+
     commentBtn.forEach( el => {
         el.addEventListener("click", () => {
             siteWrapper.classList.toggle("blur");
@@ -22,7 +24,7 @@ const popUpFunc = () => {
             modalPopupWrapper.classList.toggle("hide-init")
             let currentCard = el.parentNode.parentNode;
             let elImg = currentCard.firstElementChild
-            console.log(getPokemonData())
+            console.log(data.results)
             // create dynamic modal popup
             const element = `<div class="modal-inner-wrapper">
             <div class="img-cancel">
