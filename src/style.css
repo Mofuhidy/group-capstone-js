@@ -149,6 +149,7 @@ i:hover {
 }
 
 /* display site-wrapper when done with styling modal */
+
 .modal-popup-wrapper {
   background-color: var(--gray-color);
   padding: 2.125rem 0;
@@ -181,6 +182,18 @@ i:hover {
   text-align: center;
 }
 
+.cancel-icon {
+  font-size: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 900;
+  color: red;
+}
+
+.cancel-icon:hover {
+  cursor: pointer;
+}
+
 .modal-inner-wrapper .img-cancel {
   display: flex;
   justify-content: center;
@@ -191,6 +204,7 @@ i:hover {
 .modal-inner-wrapper .img-cancel img {
   width: 50%;
 }
+
 
 .modal-inner-wrapper .img-cancel span {
   font-size: 3rem;

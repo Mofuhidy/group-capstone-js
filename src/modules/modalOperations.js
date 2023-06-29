@@ -32,14 +32,14 @@ const popUpFunc = async () => {
       const element = `<div class="modal-inner-wrapper">
         <span class="cancel-icon">X</span>
           <div class="img-cancel">
-            <img src="${elImg.src}" alt="${elTitle}">
+            <img src="${elImg.src}" alt="${elTitle.innerHTML}">
           </div>
           <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
           <div class="modal-info">
             <div class="left">
               <span>Abilities: ${ability.value}</span>
               <span>Move: ${move.value}</span>
-              </div>
+            </div>
               <div class="right">
               <span>Height: ${height.value}</span>
               <span>Weight: ${weight.value}</span>
@@ -59,6 +59,7 @@ const popUpFunc = async () => {
               </form>
             </div>
         </div>`;
+
 
       const displayComments = async () => {
         const result = await getComments(currentCard.id);
