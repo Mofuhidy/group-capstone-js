@@ -26,11 +26,12 @@ header {
 
 header .gradient {
   position: absolute;
-  background: radial-gradient(
-    circle,
-    rgba(94, 55, 186, 1) 10%,
-    rgba(24, 7, 94, 1) 70%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(94, 55, 186, 1) 10%,
+      rgba(24, 7, 94, 1) 70%
+    );
   height: 600px;
   width: 600px;
   top: -240px;
@@ -150,7 +151,7 @@ i:hover {
 /* display site-wrapper when done with styling modal */
 .modal-popup-wrapper {
   background-color: var(--gray-color);
-  padding: 2.125rem 0px;
+  padding: 2.125rem 0;
   width: 60%;
   height: 92vh;
   overflow-y: scroll;
@@ -228,6 +229,7 @@ i:hover {
   color: white;
   border-radius: 10px;
 }
+
 .comments-count {
   font-size: 1.3rem;
 }
