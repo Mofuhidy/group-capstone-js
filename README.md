@@ -161,7 +161,7 @@ Once success it will automaticly running, you should see your application workin
 - GitHub: [@Mofuhidy](https://github.com/Mofuhidy)
 - LinkedIn: [@Mofuhidy](https://www.linkedin.com/in/mohammed-alfuhidy-b0081319a/)
 
-- 👤 **Paulinelali**
+👤 **Paulinelali**
 - GitHub: [@Paulinelali](https://github.com/Mofuhidy)
 - LinkedIn: [@Paulinelali](https://www.linkedin.com/in/ayomide-emmanuel-1353b31b9/)
 
