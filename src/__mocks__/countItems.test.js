@@ -1,4 +1,4 @@
-import { testCount } from '../modules/countItems.js';
+import { itemsCount } from '../modules/countItems.js';
 
 describe('pokemons counts - response is 3', () => {
   test('item counts', async () => {
@@ -12,7 +12,7 @@ describe('pokemons counts - response is 3', () => {
       ),
     }));
 
-    const res = await testCount();
+    const res = await itemsCount();
     expect(res.length).toBe(3);
   });
 
@@ -21,7 +21,16 @@ describe('pokemons counts - response is 3', () => {
       json: () => Promise.resolve(null),
     }));
 
-    const res = await testCount();
+    const res = await itemsCount();
     expect(res).toBe(null);
+  });
+
+  test('comments count - empty response', async () => {
+    global.fetch = jest.fn(() => Promise.resolve({
+      json: () => Promise.resolve([]),
+    }));
+
+    const res = await itemsCount();
+    expect(res.length).toBe(0); // Check if the res.length is 0
   });
 });
