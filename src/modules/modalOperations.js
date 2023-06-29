@@ -28,20 +28,11 @@ const popUpFunc = async () => {
       const height = ability.nextElementSibling.nextElementSibling;
       const move = ability.nextElementSibling.nextElementSibling
         .nextElementSibling;
-      //  get comment
-      // const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3P9ifz6JhS0AXCdTzxPo/comments?item_id=${currentCard.id}`;
-
-      // const getPokemonComments = async () => {
-      //   const response = await fetch(url);
-      //   const data = await response.json();
-      //   return data;
-      // };
-
       // create dynamic modal popup
       const element = `<div class="modal-inner-wrapper">
+      <span class="cancel-icon">X</span>
             <div class="img-cancel">
               <img src="${elImg.src}" alt="">
-              <span class="cancel-icon">X</span>
             </div>
             <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
             <div class="modal-info">
