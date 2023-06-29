@@ -24,4 +24,13 @@ describe('pokemons counts - response is 3', () => {
     const res = await testCount();
     expect(res).toBe(null);
   });
+
+  test('comments count - empty response', async () => {
+    global.fetch = jest.fn(() => Promise.resolve({
+      json: () => Promise.resolve([]),
+    }));
+
+    const res = await testCount();
+    expect(res.length).toBe(0); // Check if the res.length is 0
+  });
 });
