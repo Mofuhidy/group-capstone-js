@@ -32,17 +32,17 @@ const popUpFunc = async () => {
       const element = `<div class="modal-inner-wrapper">
         <span class="cancel-icon">X</span>
           <div class="img-cancel">
-            <img src="${elImg.src}" alt="">
+            <img src="${elImg.src}" alt="${elTitle}">
           </div>
           <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
           <div class="modal-info">
             <div class="left">
               <span>Abilities: ${ability.value}</span>
-              <span>Weight: ${weight.value}</span>
-            </div>
-            <div class="right">
-              <span>Height: ${height.value}</span>
               <span>Move: ${move.value}</span>
+              </div>
+              <div class="right">
+              <span>Height: ${height.value}</span>
+              <span>Weight: ${weight.value}</span>
             </div>
           </div>
             <div class="comment-wrapper">
