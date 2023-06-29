@@ -39,7 +39,4 @@ const postPokemonComment = async (url, id, username, comment) => {
   return res;
 };
 
-export {
-  getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment,
-  getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment, getPokemonComments,
-};
+export {getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment};
