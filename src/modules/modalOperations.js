@@ -29,37 +29,36 @@ const popUpFunc = async () => {
       const move = ability.nextElementSibling.nextElementSibling
         .nextElementSibling;
 
-      // create dynamic modal popup
       const element = `<div class="modal-inner-wrapper">
-      <span class="cancel-icon">X</span>
-            <div class="img-cancel">
-              <img src="${elImg.src}" alt="">
+        <span class="cancel-icon">X</span>
+          <div class="img-cancel">
+            <img src="${elImg.src}" alt="${elTitle.innerHTML}">
+          </div>
+          <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
+          <div class="modal-info">
+            <div class="left">
+              <span>Abilities: ${ability.value}</span>
+              <span>Move: ${move.value}</span>
             </div>
-            <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
-            <div class="modal-info">
-              <div class="left">
-                <span>Abilities: ${ability.value}</span>
-                <span>Weight: ${weight.value}</span>
-              </div>
               <div class="right">
-                <span>Height: ${height.value}</span>
-                <span>Move: ${move.value}</span>
-              </div>
+              <span>Height: ${height.value}</span>
+              <span>Weight: ${weight.value}</span>
             </div>
-              <div class="comment-wrapper">
-                <div class="comments-count">
-                <span>Comments (<span class="comment-count">0</span>)</span>
-                </div>
-                <ul class="comments">
-                </ul>
-                <form action="" class="add-comments">
-                  <p class="p1">Add a comment</p>
-                  <input type="text" name="username" id="username" placeholder="Your name" required>
-                  <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Your insight" required></textarea>
-                  <button type="button" class="post-btn">Comment</button>
-                </form>
+          </div>
+            <div class="comment-wrapper">
+              <div class="comments-count">
+              <span>Comments (<span class="comment-count">0</span>)</span>
               </div>
-          </div>`;
+              <ul class="comments">
+              </ul>
+              <form action="" class="add-comments">
+                <p class="p1">Add a comment</p>
+                <input type="text" name="username" id="username" placeholder="Your name" required>
+                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Your insight" required></textarea>
+                <button type="button" class="post-btn">Comment</button>
+              </form>
+            </div>
+        </div>`;
 
       const displayComments = async () => {
         const result = await getComments(currentCard.id);

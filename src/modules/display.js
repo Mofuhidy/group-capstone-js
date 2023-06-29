@@ -16,7 +16,7 @@ const getPokemon = async (res) => {
     return pokemon;
   }));
 
-  const ordered = pokemonCards.slice(1, 15).sort((a, b) => (a.id > b.id ? 1 : -1));
+  const ordered = pokemonCards.slice(1, 11).sort((a, b) => (a.id > b.id ? 1 : -1));
 
   // count all Items
   countItems(ordered.length);
