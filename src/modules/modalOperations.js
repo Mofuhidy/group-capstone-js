@@ -1,6 +1,6 @@
-import { comments, pokeApi } from './apiLinks.js';
-import { postPokemonComment, getPokemonComments } from './apiOerations.js';
-import { pokMon } from './display.js';
+import { getComments } from './countComments.js';
+import { comments } from './apiLinks.js';
+import { postPokemonComment } from './apiOerations.js';
 
 const siteWrapper = document.querySelector('.site-wrapper');
 const modalPopupWrapper = document.querySelector('.modal-popup-wrapper');
@@ -28,20 +28,12 @@ const popUpFunc = async () => {
       const height = ability.nextElementSibling.nextElementSibling;
       const move = ability.nextElementSibling.nextElementSibling
         .nextElementSibling;
-      //  get comment
-      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3P9ifz6JhS0AXCdTzxPo/comments?item_id=${currentCard.id}`;
-
-      const getPokemonComments = async () => {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-      };
 
       // create dynamic modal popup
       const element = `<div class="modal-inner-wrapper">
+      <span class="cancel-icon">X</span>
             <div class="img-cancel">
               <img src="${elImg.src}" alt="">
-              <span class="cancel-icon">X</span>
             </div>
             <div class="modal-title"><h1>${elTitle.innerHTML}</h1></div>
             <div class="modal-info">
@@ -56,35 +48,42 @@ const popUpFunc = async () => {
             </div>
               <div class="comment-wrapper">
                 <div class="comments-count">
-                  <span>Comments (2)</span>
+                <span>Comments (<span class="comment-count">0</span>)</span>
                 </div>
                 <ul class="comments">
                 </ul>
                 <form action="" class="add-comments">
                   <p class="p1">Add a comment</p>
-                  <input type="text" name="username" id="username" placeholder="Your name">
-                  <textarea name="comment" id="comment" cols="30" rows="10">
-                    Your insights
-                  </textarea>
+                  <input type="text" name="username" id="username" placeholder="Your name" required>
+                  <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Your insight" required></textarea>
                   <button type="button" class="post-btn">Comment</button>
                 </form>
               </div>
           </div>`;
-      const gottenComments = getPokemonComments();
-      gottenComments.then((result) => {
-        console.log(re);
-        const commentWrapper = document.querySelector('.comments');
 
-        if (result) {
-          result.forEach((el) => {
-            const li = `<li>${el.creation_date} ${el.username} ${el.comment}</li>`;
-            commentWrapper.innerHTML += li;
-          });
-        } else {
+      const displayComments = async () => {
+        const result = await getComments(currentCard.id);
+        const commentWrapper = document.querySelector('.comments');
+        const commentCountWrapper = document.querySelector('.comment-count');
+
+        commentWrapper.innerHTML = ''; // Clear existing comments
+
+        if (result.error && result.error.status === 400) {
           const li = '<li>There\'s no comment yet</li>';
           commentWrapper.innerHTML += li;
+          commentCountWrapper.textContent = '0';
+        } else if (result) {
+          const commentCount = result.length;
+          commentCountWrapper.textContent = commentCount.toString();
+
+          result.forEach((el) => {
+            const creationDate = new Date(el.creation_date);
+            const formattedDate = `${creationDate.getDate()}/${creationDate.getMonth() + 1}/${creationDate.getFullYear()}`;
+            const li = `<li>${formattedDate} ${el.username}: ${el.comment}</li>`;
+            commentWrapper.innerHTML += li;
+          });
         }
-      });
+      };
 
       modalPopupWrapper.innerHTML = element;
       const postCommentBtn = document.querySelector('.post-btn');
@@ -94,13 +93,30 @@ const popUpFunc = async () => {
         e.preventDefault();
         const username = document.querySelector('#username').value;
         const comment = document.querySelector('#comment').value;
-        postPokemonComment(comments, currentCard.id, username, comment);
-        setTimeout(() => {
-          document.querySelector('form').reset();
+
+        const usernameInput = document.querySelector('#username');
+        const commentInput = document.querySelector('#comment');
+
+        if (username.trim() === '') {
+          usernameInput.reportValidity();
+          return;
+        }
+
+        if (comment.trim() === '') {
+          commentInput.reportValidity();
+          return;
+        }
+        postPokemonComment(comments, currentCard.id, username, comment).then((res) => {
+          if (res.ok) {
+            displayComments();
+            document.querySelector('form').reset();
+          }
         });
       });
       const cancelIcon = document.querySelector('.cancel-icon');
       cancelIcon.addEventListener('click', cancelPopUp);
+
+      displayComments();
     });
   });
 };

@@ -1,4 +1,4 @@
-import { pokeApi, likesAPi, comments } from './apiLinks.js';
+import { pokeApi, likesAPi } from './apiLinks.js';
 
 const getPokemonData = async () => {
   const data = await fetch(pokeApi);
@@ -22,23 +22,21 @@ const postPokemonLikes = async (url, id) => {
   });
 };
 
-const getPokemonComments = async () => {
-  const data = await fetch(comments);
-  const jsonData = data.json();
-  return jsonData;
-};
-
 // post comment
 const postPokemonComment = async (url, id, username, comment) => {
-  await fetch(url, {
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ item_id: id, username, comment }), // body data type must match "Content-Type" header
+
+    body: JSON.stringify({ item_id: id, username, comment }),
+    // body data type must match "Content-Type" header
+
   });
+  return res;
 };
 
 export {
-  getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment, getPokemonComments,
+  getPokemonData, postPokemonLikes, getPokemonLikes, postPokemonComment,
 };
