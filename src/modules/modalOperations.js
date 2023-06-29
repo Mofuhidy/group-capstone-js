@@ -60,7 +60,6 @@ const popUpFunc = async () => {
             </div>
         </div>`;
 
-
       const displayComments = async () => {
         const result = await getComments(currentCard.id);
         const commentWrapper = document.querySelector('.comments');

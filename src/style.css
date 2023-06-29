@@ -183,11 +183,10 @@ i:hover {
 }
 
 .cancel-icon {
-  font-size: 2rem;
-  display: flex;
-  justify-content: flex-end;
-  font-weight: 900;
-  color: red;
+  text-align: right;
+  font-size: 1.8rem;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .cancel-icon:hover {
@@ -205,18 +204,10 @@ i:hover {
   width: 50%;
 }
 
-
 .modal-inner-wrapper .img-cancel span {
   font-size: 3rem;
   font-weight: 900;
   color: red;
-}
-
-.cancel-icon {
-  text-align: right;
-  font-size: 1.8rem;
-  margin-right: 10px;
-  cursor: pointer;
 }
 
 .modal-inner-wrapper .modal-info {
@@ -283,6 +274,7 @@ i:hover {
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .add-comments input[type="text"] {
