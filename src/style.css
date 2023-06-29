@@ -176,7 +176,7 @@ i:hover {
   text-align: center;
 }
 
-.cancel-icon{
+.cancel-icon {
   font-size: 2rem;
   display: flex;
   justify-content: flex-end;
@@ -184,8 +184,8 @@ i:hover {
   color: red;
 }
 
-.cancel-icon:hover{
-  cursor: pointer
+.cancel-icon:hover {
+  cursor: pointer;
 }
 
 .modal-inner-wrapper .img-cancel {
