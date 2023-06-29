@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Mofuhidy/group-capstone-js/issues"
   },
-  "homepage": "https://github.com/Mofuhidy/group-capstone-js#readme",
+  "homepage": "https://github.com/Mofuhidy/group-capstone-js",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "babel-eslint": "^10.1.0",
@@ -40,6 +41,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "jest": "^29.5.0"
   }
 }

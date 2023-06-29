@@ -5,10 +5,10 @@ const countItems = (item) => {
   total.innerHTML = `(${item})`;
 };
 
-const testCount = async () => {
+const itemsCount = async () => {
   const data = await fetch(pokeApi);
   const json = await data.json();
   return json;
 };
 
-export { countItems, testCount };
+export { countItems, itemsCount };
