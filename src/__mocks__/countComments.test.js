@@ -11,7 +11,7 @@ describe('comments counts', () => {
       ]),
     }));
 
-const count = await commentsCount();
+    const count = await commentsCount();
     expect(count.length).toBe(4);
   });
 
@@ -30,6 +30,6 @@ const count = await commentsCount();
     }));
 
     const count = await commentsCount();
-    expect(count.length).toBe(0); // Check if the count.length is 0
-  });
+    expect(count.length).toBe(0); // Check if the count.length is 0
+  });
 });
