@@ -75,5 +75,4 @@ const displayPokemons = async () => {
   getPokemon(data.results);
 };
 
-
 export default displayPokemons;
