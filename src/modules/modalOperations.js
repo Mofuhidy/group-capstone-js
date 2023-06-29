@@ -1,6 +1,8 @@
-import { comments } from './apiLinks.js';
-import { postPokemonComment } from './apiOerations.js';
+
 import { getComments } from './countComments.js';
+import { comments, pokeApi } from './apiLinks.js';
+import { postPokemonComment, getPokemonComments } from './apiOerations.js';
+
 
 const siteWrapper = document.querySelector('.site-wrapper');
 const modalPopupWrapper = document.querySelector('.modal-popup-wrapper');
@@ -28,6 +30,15 @@ const popUpFunc = async () => {
       const height = ability.nextElementSibling.nextElementSibling;
       const move = ability.nextElementSibling.nextElementSibling
         .nextElementSibling;
+
+      //  get comment
+      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3P9ifz6JhS0AXCdTzxPo/comments?item_id=${currentCard.id}`;
+
+      const getPokemonComments = async () => {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      };
 
       const element = `<div class="modal-inner-wrapper">
         <span class="cancel-icon">X</span>
@@ -84,6 +95,8 @@ const popUpFunc = async () => {
         }
       };
 
+
+
       modalPopupWrapper.innerHTML = element;
       const postCommentBtn = document.querySelector('.post-btn');
 
@@ -92,6 +105,7 @@ const popUpFunc = async () => {
         e.preventDefault();
         const username = document.querySelector('#username').value;
         const comment = document.querySelector('#comment').value;
+
         const usernameInput = document.querySelector('#username');
         const commentInput = document.querySelector('#comment');
 
@@ -109,6 +123,7 @@ const popUpFunc = async () => {
             displayComments();
             document.querySelector('form').reset();
           }
+
         });
       });
       const cancelIcon = document.querySelector('.cancel-icon');
